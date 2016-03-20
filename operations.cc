@@ -79,7 +79,7 @@ void Add::write_c_code(ostream& o) const {
   write_shift(o, left_->name(), lhs_shift_);
   o << " + ";
   write_shift(o, right_->name(), rhs_shift_);
-  o << " /* " << scale_ << " " << range_ << " */";
+  o << "; /* " << scale_ << " " << range_ << " */";
 }
 
 int64_t Add::eval(environment env) const {
@@ -114,7 +114,7 @@ void Mul::write_c_code(ostream& o) const {
   write_shift(o, left_->name(), lhs_shift_);
   o << " * ";
   write_shift(o, right_->name(), rhs_shift_);
-  o << " /* " << scale_ << " " << range_ << " */";
+  o << "; /* " << scale_ << " " << range_ << " */";
 }
 
 int64_t Mul::eval(environment env) const {
