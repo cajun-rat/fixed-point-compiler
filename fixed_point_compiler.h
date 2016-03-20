@@ -169,14 +169,16 @@ class Mul : public Var {
 
 class Program {
  public:
-  void push_back(VarR var) { instructions_.push_back(var); }
-
+  
   VarR lit(double value, std::string name_hint);
   VarR load(std::string c_exp, Range range, Scale scale, std::string name_hint);
   VarR store(std::string c_exp, VarR value);
   VarR add(VarR lhs, VarR rhs, std::string name_hint);
   VarR mul(VarR lhs, VarR rhs, std::string name_hint);
+ 
+  void push_back(VarR var) { instructions_.push_back(var); }
 
+  int64_t eval(environment &env) const;
  private:
   std::vector<VarR> instructions_;
   std::set<std::string> local_temps_;

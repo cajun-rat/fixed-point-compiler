@@ -53,6 +53,6 @@ add_subdirectory(googletest)
 include_directories("${PROJECT_SOURCE_DIR}/googletest/include")
 
 # simple test
-cxx_test (simple_test gtest_main)
+cxx_test (simple_test gtest_main ${SHARED_SRCS})
 
 enable_testing()
