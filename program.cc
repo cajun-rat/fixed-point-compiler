@@ -34,12 +34,12 @@ VarR Program::mul(VarR lhs, VarR rhs, string name_hint) {
   return res;
 }
 
-int64_t Program::eval(environment &env) const {
-	int64_t res;
-	for (auto pc = instructions_.cbegin(); pc != instructions_.cend(); ++pc) {
-		res = (*pc)->eval(env);
-	}
-	return res;
+int64_t Program::eval(environment& env) const {
+  int64_t res;
+  for (auto pc = instructions_.cbegin(); pc != instructions_.cend(); ++pc) {
+    res = (*pc)->eval(env);
+  }
+  return res;
 }
 
 string Program::get_tmp_local(
